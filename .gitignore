@@ -1,0 +1,8 @@
+/target/
+/.idea/
+*.iml
+
+# Runtime secrets and generated examples
+.env
+src/main/resources/secure/*.enc
+src/main/resources/secure/*.bin

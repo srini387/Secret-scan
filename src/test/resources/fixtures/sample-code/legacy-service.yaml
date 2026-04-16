@@ -1,0 +1,10 @@
+# INTENTIONAL TEST SECRETS ONLY
+service:
+  name: legacy-billing
+  auth:
+    clientId: test-client-legacy
+    clientSecret: 4f4f7eec0c9f4a2fb39f471f1c7a8aa2
+    bearerToken: "Bearer testHeader.testPayload.testSignatureFixture"
+  integrations:
+    pagerdutyRoutingKey: "0123456789abcdef0123456789abcdef"
+    webhookSigningSecret: "webhook_secret_fixture_aaaaaaaaabbbbbbbbbbcccccccccc"
