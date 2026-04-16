@@ -10,18 +10,11 @@ public class App {
     public static void main(String[] args) {
         SecureConfigLoader configLoader = new SecureConfigLoader();
 
-        String apiToken = configLoader.getRequired("APP_API_TOKEN");
-        String dbPassword = configLoader.getRequired("APP_DB_PASSWORD");
+        String apiToken = configLoader.getRequiredOrInsecureDefault("APP_API_TOKEN");
+        String dbPassword = configLoader.getRequiredOrInsecureDefault("APP_DB_PASSWORD");
 
-        LOG.info("Application started with secure secret sources.");
-        LOG.info("API token fingerprint: {}", fingerprint(apiToken));
-        LOG.info("DB password fingerprint: {}", fingerprint(dbPassword));
-    }
-
-    private static String fingerprint(String value) {
-        if (value == null || value.length() < 8) {
-            return "invalid";
-        }
-        return value.substring(0, 4) + "..." + value.substring(value.length() - 4);
+        LOG.info("Application started with insecure secret fallback enabled.");
+        LOG.info("API token (plaintext): {}", apiToken);
+        LOG.info("DB password (plaintext): {}", dbPassword);
     }
 }
